@@ -1,5 +1,7 @@
 ---
 import BaseHead from '~/components/shared/BaseHead.astro'
+import Container from '~/components/shared/Container.astro'
+import Icon from '~/components/ui/Icon.astro'
 import '~/styles/global.css'
 
 interface Props {
@@ -23,7 +25,24 @@ const { title, description, keywords, image } = Astro.props
     />
     <meta name="color-scheme" content="dark" />
   </head>
-  <body class="bg-neutral-950 text-neutral-300 antialiased">
-    <slot />
+  <body
+    class="flex min-h-screen flex-col bg-neutral-950 text-neutral-300 antialiased"
+  >
+    <header class="px-6">
+      <Container>
+        <div class="flex h-20 items-center justify-between">
+          <a href="/">Tinogasta Labs</a>
+          <button class="md:hidden">
+            <Icon name="menu" class="size-5" />
+          </button>
+        </div>
+      </Container>
+    </header>
+    <main class="flex-1 px-6">
+      <slot />
+    </main>
+    <footer class="flex h-24 items-center px-6">
+      <p class="w-full text-center">This site is under construction.</p>
+    </footer>
   </body>
 </html>
