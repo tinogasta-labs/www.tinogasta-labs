@@ -1,5 +1,25 @@
 @import 'tailwindcss';
 
+:root {
+  --canvas: #171717;
+  --fg: #f2f0e3;
+  --fg-muted: #a1a1a2;
+  --primary: #f2f0e3;
+  --on-primary: #171717;
+}
+
 @theme {
-  --color-black: #111;
+  --color-canvas: var(--canvas);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply text-fg bg-canvas min-h-screen min-w-[320px] antialiased;
 }
