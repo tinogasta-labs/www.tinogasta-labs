@@ -1,0 +1,49 @@
+---
+import Container from '~/components/shared/Container.astro'
+
+const services = [
+  {
+    title: 'Custom Development',
+    description:
+      'We build fast, accessible, and scalable web applications using open-source technologies and industry best practices.',
+  },
+  {
+    title: 'Developer Tools',
+    description:
+      'We create tools to streamline workflows, enhance the developer experience, and improve software quality.',
+  },
+  {
+    title: 'Performance Optimization',
+    description:
+      'We optimize websites and applications for speed and efficiency with advanced techniques, monitoring, and best practices.',
+  },
+  {
+    title: 'Community Building',
+    description:
+      'We foster innovation by exploring new technologies and contributing to open-source projects that empower the developer community.',
+  },
+]
+---
+
+<section class="py-16 md:py-24">
+  <Container>
+    <header class="mb-16 flex flex-col gap-2">
+      <h1 class="text-2xl sm:text-4xl">What We Do?</h1>
+      <p class="text-fg-muted sm:text-lg">
+        We build digital solutions to empower businesses and local projects.
+      </p>
+    </header>
+
+    <ul class="grid gap-6 sm:grid-cols-2">
+      {
+        services.map(service => (
+          <li class="border-fg/10 border p-8 sm:p-12">
+            <span class="bg-fg/10 block size-12 sm:size-16" />
+            <h1 class="mt-4 mb-4 text-xl sm:text-2xl">{service.title}</h1>
+            <p class="text-fg-muted sm:text-lg">{service.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </Container>
+</section>
