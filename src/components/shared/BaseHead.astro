@@ -38,6 +38,9 @@ const ogImage = new URL(image ? image : config.image, Astro.url).href
 <meta name="twitter:description" content={siteDescription} />
 <meta property="twitter:image" content={ogImage} />
 
+<!-- disable google translation -->
+<meta name="google" content="notranslate" />
+
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
