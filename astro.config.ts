@@ -6,7 +6,7 @@ import { iconsSpritesheet } from 'vite-plugin-icons-spritesheet'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://quick-web-template.netlify.app',
+  site: 'https://tinogasta-labs.pages.dev',
   prefetch: true,
 
   devToolbar: {
