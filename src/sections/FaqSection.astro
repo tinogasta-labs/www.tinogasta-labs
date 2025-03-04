@@ -39,13 +39,65 @@ const faqs = [
       {
         faqs.map(faq => (
           <div class="border-fg/10 mb-4 border-b pb-4">
-            <button class="flex w-full items-center justify-between gap-4 py-4 text-left">
+            <button
+              aria-expanded="false"
+              aria-controls="1"
+              class="faq-question flex w-full items-center justify-between gap-4 py-4 text-left"
+            >
               <h3 class="text-xl">{faq.question}</h3>
               <Icon name="chevron-down" class="size-5 shrink-0" />
             </button>
+            <div
+              class="faq-answer max-h-0 transform overflow-hidden opacity-0 transition-all duration-300 ease-in-out"
+              id="answer-1"
+            >
+              <p class="text-fg-muted pb-6">{faq.answer}</p>
+            </div>
           </div>
         ))
       }
     </div>
   </Container>
 </section>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const buttons = document.querySelectorAll('.faq-question')
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling
+        const icon = btn.querySelector('svg')
+
+        buttons.forEach(otherToggle => {
+          if (otherToggle !== btn) {
+            const otherContent = otherToggle.nextElementSibling
+            const otherIcon = otherToggle.querySelector('svg')
+
+            otherToggle.setAttribute('aria-expanded', 'false')
+            otherContent?.classList.remove('active')
+            otherIcon?.classList.remove('rotate-180')
+          }
+        })
+
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true'
+        btn.setAttribute('aria-expanded', (!isExpanded).toString())
+
+        if (isExpanded) {
+          answer?.classList.remove('active')
+          icon?.classList.remove('rotate-180')
+        } else {
+          answer?.classList.add('active')
+          icon?.classList.add('rotate-180')
+        }
+      })
+    })
+  })
+</script>
+
+<style>
+  .faq-answer.active {
+    opacity: 1;
+    max-height: min-content;
+  }
+</style>
