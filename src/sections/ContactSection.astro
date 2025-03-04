@@ -1,5 +1,6 @@
 ---
 import Container from '~/components/shared/Container.astro'
+import Icon from '~/components/ui/Icon.astro'
 ---
 
 <section class="py-16 md:py-24">
@@ -12,7 +13,33 @@ import Container from '~/components/shared/Container.astro'
       </p>
     </header>
 
-    <div>Email</div>
-    <div>Contribute</div>
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="group hover:bg-fg/10 border-fg/10 border transition-all">
+        <a
+          href="mailto:contact@tinogasta-labs.com"
+          class="flex items-center gap-4 p-6"
+        >
+          <Icon name="envelope-closed" class="size-5" />
+          <div class="flex-1">
+            <h1>Email Us</h1>
+            <p class="text-fg-muted">contact@tinogasta-labs.com</p>
+          </div>
+          <Icon name="external-link" class="text-fg-muted size-4" />
+        </a>
+      </div>
+      <div class="group hover:bg-fg/10 border-fg/10 border transition-all">
+        <a
+          href="https://github.com/tinogasta-labs"
+          class="flex items-center gap-4 p-6"
+        >
+          <Icon name="github-logo" class="size-5" />
+          <div class="flex-1">
+            <h1>Contribute</h1>
+            <p class="text-fg-muted">@tinogasta-labs</p>
+          </div>
+          <Icon name="external-link" class="text-fg-muted size-4" />
+        </a>
+      </div>
+    </div>
   </Container>
 </section>
