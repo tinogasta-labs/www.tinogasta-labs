@@ -76,14 +76,14 @@ const navItems = [
 </header>
 
 <script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button')
+  const mobileMenu = document.getElementById('mobile-menu')
+  const menuClosedIcon = document.getElementById('menu-closed-icon')
+  const menuOpenIcon = document.getElementById('menu-open-icon')
+  const body = document.body
+
   // Function to close mobile menu
   function closeMobileMenu() {
-    const mobileMenuButton = document.getElementById('mobile-menu-button')
-    const mobileMenu = document.getElementById('mobile-menu')
-    const menuClosedIcon = document.getElementById('menu-closed-icon')
-    const menuOpenIcon = document.getElementById('menu-open-icon')
-    const body = document.body
-
     if (mobileMenuButton && mobileMenu && menuClosedIcon && menuOpenIcon) {
       // Reset menu state
       mobileMenuButton.setAttribute('aria-expanded', 'false')
@@ -100,17 +100,10 @@ const navItems = [
       }, 300)
 
       // Toggle icons
-      menuClosedIcon.classList.remove('hidden')
-      menuOpenIcon.classList.add('hidden')
+      menuClosedIcon.classList.toggle('hidden')
+      menuOpenIcon.classList.toggle('hidden')
     }
   }
-
-  // Toggle mobile menu
-  const mobileMenuButton = document.getElementById('mobile-menu-button')
-  const mobileMenu = document.getElementById('mobile-menu')
-  const menuClosedIcon = document.getElementById('menu-closed-icon')
-  const menuOpenIcon = document.getElementById('menu-open-icon')
-  const body = document.body
 
   if (mobileMenuButton && mobileMenu && menuClosedIcon && menuOpenIcon) {
     mobileMenuButton.addEventListener('click', () => {
@@ -130,13 +123,11 @@ const navItems = [
           mobileMenu.classList.remove('opacity-0')
           mobileMenu.classList.add('opacity-100')
         }, 10)
+        menuClosedIcon.classList.add('hidden')
+        menuOpenIcon.classList.remove('hidden')
       } else {
         closeMobileMenu()
       }
-
-      // Toggle icons
-      menuClosedIcon.classList.toggle('hidden')
-      menuOpenIcon.classList.toggle('hidden')
     })
 
     // Add click event listeners to mobile menu links
