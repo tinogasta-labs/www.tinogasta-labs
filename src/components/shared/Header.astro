@@ -94,7 +94,7 @@ const navItems = [
 
       // Wait for animation to complete before hiding
       setTimeout(() => {
-        mobileMenu.classList.add('hidden')
+        mobileMenu.style.pointerEvents = 'none'
         // Re-enable body scrolling
         body.style.overflow = ''
       }, 300)
@@ -113,8 +113,8 @@ const navItems = [
 
       // Toggle menu visibility
       if (!expanded) {
-        // Show menu
-        mobileMenu.classList.remove('hidden')
+        // Enable interaction
+        mobileMenu.style.pointerEvents = 'auto'
         // Prevent body scrolling
         body.style.overflow = 'hidden'
 
@@ -143,3 +143,13 @@ const navItems = [
     })
   }
 </script>
+
+<style>
+  #mobile-menu {
+    pointer-events: none;
+  }
+
+  #mobile-menu.opacity-100 {
+    pointer-events: auto;
+  }
+</style>
