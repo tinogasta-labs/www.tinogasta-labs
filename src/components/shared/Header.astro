@@ -1,0 +1,154 @@
+---
+import Icon from '~/components/ui/Icon.astro'
+import Container from './Container.astro'
+
+// Define your navigation items
+const navItems = [
+  { name: 'About', url: '#about' },
+  { name: 'Services', url: '#services' },
+  { name: 'Contact', url: '#contact' },
+  { name: 'FAQ', url: '#faq' },
+]
+---
+
+<header class="px-6">
+  <Container>
+    <nav class="relative z-50">
+      <div class="flex h-24 justify-between">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <a href="/" class="text-lg">Tinogasta Labs</a>
+          </div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex md:items-center md:space-x-6">
+          {
+            navItems.map(item => (
+              <a
+                href={item.url}
+                class="text-fg-muted rounded-md px-3 py-2 text-sm font-medium transition-colors duration-200"
+              >
+                {item.name}
+              </a>
+            ))
+          }
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="flex items-center md:hidden">
+          <button
+            type="button"
+            id="mobile-menu-button"
+            class="z-50 inline-flex items-center justify-center rounded-md p-2"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <!-- Icon when menu is closed -->
+            <Icon name="menu" class="size-5" id="menu-closed-icon" />
+            <!-- Icon when menu is open -->
+            <Icon name="cross-2" class="hidden size-5" id="menu-open-icon" />
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile menu, show/hide based on menu state -->
+    <div
+      id="mobile-menu"
+      class="bg-opacity-95 bg-canvas fixed inset-0 z-40 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 ease-in-out md:hidden"
+    >
+      <div class="flex w-full flex-col items-center space-y-8 px-4">
+        {
+          navItems.map(item => (
+            <a
+              href={item.url}
+              class="mobile-menu-link text-fg-muted text-2xl font-light transition-colors duration-200"
+            >
+              {item.name}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+</header>
+
+<script>
+  // Function to close mobile menu
+  function closeMobileMenu() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button')
+    const mobileMenu = document.getElementById('mobile-menu')
+    const menuClosedIcon = document.getElementById('menu-closed-icon')
+    const menuOpenIcon = document.getElementById('menu-open-icon')
+    const body = document.body
+
+    if (mobileMenuButton && mobileMenu && menuClosedIcon && menuOpenIcon) {
+      // Reset menu state
+      mobileMenuButton.setAttribute('aria-expanded', 'false')
+
+      // Hide menu with fade out
+      mobileMenu.classList.remove('opacity-100')
+      mobileMenu.classList.add('opacity-0')
+
+      // Wait for animation to complete before hiding
+      setTimeout(() => {
+        mobileMenu.classList.add('hidden')
+        // Re-enable body scrolling
+        body.style.overflow = ''
+      }, 300)
+
+      // Toggle icons
+      menuClosedIcon.classList.remove('hidden')
+      menuOpenIcon.classList.add('hidden')
+    }
+  }
+
+  // Toggle mobile menu
+  const mobileMenuButton = document.getElementById('mobile-menu-button')
+  const mobileMenu = document.getElementById('mobile-menu')
+  const menuClosedIcon = document.getElementById('menu-closed-icon')
+  const menuOpenIcon = document.getElementById('menu-open-icon')
+  const body = document.body
+
+  if (mobileMenuButton && mobileMenu && menuClosedIcon && menuOpenIcon) {
+    mobileMenuButton.addEventListener('click', () => {
+      const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true'
+
+      mobileMenuButton.setAttribute('aria-expanded', (!expanded).toString())
+
+      // Toggle menu visibility
+      if (!expanded) {
+        // Show menu
+        mobileMenu.classList.remove('hidden')
+        // Prevent body scrolling
+        body.style.overflow = 'hidden'
+
+        // Trigger fade in (wait a tiny bit for the display change to take effect)
+        setTimeout(() => {
+          mobileMenu.classList.remove('opacity-0')
+          mobileMenu.classList.add('opacity-100')
+        }, 10)
+      } else {
+        closeMobileMenu()
+      }
+
+      // Toggle icons
+      menuClosedIcon.classList.toggle('hidden')
+      menuOpenIcon.classList.toggle('hidden')
+    })
+
+    // Add click event listeners to mobile menu links
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link')
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        // Optional: Prevent default navigation if using hash links to scroll
+        // e.preventDefault();
+
+        // Close mobile menu
+        closeMobileMenu()
+      })
+    })
+  }
+</script>

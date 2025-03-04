@@ -1,6 +1,7 @@
 ---
+import BackToTop from '~/components/BackToTop.astro'
 import BaseHead from '~/components/shared/BaseHead.astro'
-import Container from '~/components/shared/Container.astro'
+import Header from '~/components/shared/Header.astro'
 import Icon from '~/components/ui/Icon.astro'
 import '~/styles/global.css'
 
@@ -26,16 +27,7 @@ const { title, description, keywords, image } = Astro.props
   </head>
   <body>
     <div class="flex min-h-screen flex-col">
-      <header class="px-6">
-        <Container>
-          <div class="flex h-20 items-center justify-between">
-            <a href="/" class="text-lg">Tinogasta Labs</a>
-            <button class="md:hidden">
-              <Icon name="menu" class="size-5" />
-            </button>
-          </div>
-        </Container>
-      </header>
+      <Header />
       <main class="flex-1 px-6">
         <slot />
       </main>
@@ -44,6 +36,7 @@ const { title, description, keywords, image } = Astro.props
           This site is under construction.
         </p>
       </footer>
+      <BackToTop />
     </div>
   </body>
 </html>
