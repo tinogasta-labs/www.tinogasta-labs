@@ -142,7 +142,7 @@ const navItems = [
     // Add click event listeners to mobile menu links
     const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link')
     mobileMenuLinks.forEach(link => {
-      link.addEventListener('click', e => {
+      link.addEventListener('click', () => {
         // Optional: Prevent default navigation if using hash links to scroll
         // e.preventDefault();
 
