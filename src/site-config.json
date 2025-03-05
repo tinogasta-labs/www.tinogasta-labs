@@ -1,9 +1,9 @@
 {
-  "title": "www.tinogasta-labs",
-  "description": "www.tinogasta-labs description",
+  "title": "Tinogasta Labs",
+  "description": "Building secure, high-performance applications for the community.",
   "image": "/og.png",
   "meta": {
-    "keywords": []
+    "keywords": ["web development", "full stack", "programming", "tinogasta"]
   },
   "author": {
     "twitter": "@tinogasta-labs"
