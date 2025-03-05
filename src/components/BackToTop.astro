@@ -13,33 +13,34 @@ import Icon from './ui/Icon.astro'
 
 <script>
   // Back to Top functionality
-  const backToTopButton = document.getElementById('back-to-top')
 
-  if (backToTopButton) {
-    // Function to toggle button visibility
-    const toggleBackToTopButton = () => {
-      // Show button when scrolled down more than 200 pixels
-      if (window.scrollY > 200) {
-        backToTopButton.classList.remove('opacity-0', 'pointer-events-none')
-        backToTopButton.classList.add('opacity-100', 'cursor-pointer')
-      } else {
-        backToTopButton.classList.remove('opacity-100', 'cursor-pointer')
-        backToTopButton.classList.add('opacity-0', 'pointer-events-none')
-      }
+  function toggleBackToTopButton(backToTopButton?: HTMLElement | null) {
+    // Show button when scrolled down more than 200 pixels
+    if (window.scrollY > 200) {
+      backToTopButton?.classList.remove('opacity-0', 'pointer-events-none')
+      backToTopButton?.classList.add('opacity-100', 'cursor-pointer')
+    } else {
+      backToTopButton?.classList.remove('opacity-100', 'cursor-pointer')
+      backToTopButton?.classList.add('opacity-0', 'pointer-events-none')
     }
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    const backToTopButton = document.getElementById('back-to-top')
+
+    toggleBackToTopButton(backToTopButton)
 
     // Add scroll event listener
-    window.addEventListener('scroll', toggleBackToTopButton)
+    window.addEventListener('scroll', () =>
+      toggleBackToTopButton(backToTopButton),
+    )
 
     // Add click event to scroll to top
-    backToTopButton.addEventListener('click', () => {
+    backToTopButton?.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
         behavior: 'smooth',
       })
     })
-
-    // Initial check in case page loads with scroll position
-    toggleBackToTopButton()
-  }
+  })
 </script>
