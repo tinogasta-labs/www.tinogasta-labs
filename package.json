@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
+    "@fontsource-variable/mona-sans": "5.2.5",
     "@tailwindcss/vite": "^4.0.9",
     "astro": "5.4.1",
     "tailwindcss": "^4.0.9"
