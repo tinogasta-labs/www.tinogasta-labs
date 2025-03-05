@@ -13,6 +13,11 @@ export default defineConfig({
     enabled: false,
   },
 
+  compressHTML: true,
+  build: {
+    inlineStylesheets: 'always',
+  },
+
   vite: {
     plugins: [
       tailwindcss(),
