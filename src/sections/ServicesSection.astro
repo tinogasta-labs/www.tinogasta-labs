@@ -1,34 +1,17 @@
 ---
-import type { IconName } from '@/icon-name'
 import Container from '~/components/shared/Container.astro'
 import Icon from '~/components/ui/Icon.astro'
+import { getTranslations } from '~/i18n'
+import type { Language } from '~/i18n/types'
 
-const services = [
-  {
-    title: 'Custom Development',
-    description:
-      'We build fast, accessible, and scalable web applications using open-source technologies and industry best practices.',
-    iconName: 'code',
-  },
-  {
-    title: 'Developer Tools',
-    description:
-      'We create tools to streamline workflows, enhance the developer experience, and improve software quality.',
-    iconName: 'gear',
-  },
-  {
-    title: 'Performance Optimization',
-    description:
-      'We optimize websites and applications for speed and efficiency with advanced techniques, monitoring, and best practices.',
-    iconName: 'rocket',
-  },
-  {
-    title: 'Community Building',
-    description:
-      'We foster innovation by exploring new technologies and contributing to open-source projects that empower the developer community.',
-    iconName: 'stack',
-  },
-] satisfies Array<{ title: string; description: string; iconName: IconName }>
+export type Props = {
+  lang: Language
+}
+
+const { lang } = Astro.props
+
+const t = getTranslations(lang)
+const services = t['services.list']
 ---
 
 <section
@@ -38,9 +21,9 @@ const services = [
 >
   <Container>
     <header class="mb-16 flex flex-col gap-4">
-      <h1 class="text-2xl sm:text-4xl">What We Do?</h1>
+      <h1 class="text-2xl sm:text-4xl">{t['services.title']}</h1>
       <p class="text-fg-muted text-xl font-light">
-        We build digital solutions to empower businesses and local projects.
+        {t['services.subtitle']}
       </p>
     </header>
 
