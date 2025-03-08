@@ -6,6 +6,8 @@ import BaseHead from '~/components/shared/BaseHead.astro'
 import '@fontsource-variable/mona-sans'
 import monaFont from '@fontsource-variable/mona-sans/files/mona-sans-latin-wght-normal.woff2?url'
 import '~/styles/global.css'
+import { defaultLang } from '~/i18n'
+import type { Language } from '~/i18n/types'
 
 interface Props {
   title?: string
@@ -14,11 +16,13 @@ interface Props {
   image?: string
 }
 
+const lang = (Astro.currentLocale || defaultLang) as Language
+
 const { title, description, keywords, image } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <link
       rel="preload"
@@ -36,7 +40,7 @@ const { title, description, keywords, image } = Astro.props
   </head>
   <body>
     <div class="flex min-h-screen flex-col">
-      <Header />
+      <Header lang={lang} />
       <main class="flex-1 px-6">
         <slot />
       </main>

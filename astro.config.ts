@@ -18,6 +18,15 @@ export default defineConfig({
     inlineStylesheets: 'always',
   },
 
+  i18n: {
+    locales: ['en', 'es'],
+    defaultLocale: 'en',
+    routing: {
+      prefixDefaultLocale: false,
+      redirectToDefaultLocale: true,
+    },
+  },
+
   vite: {
     plugins: [
       tailwindcss(),
