@@ -1,5 +1,5 @@
 ---
-import { defaultLang } from '~/i18n'
+import type { GetStaticPaths } from 'astro'
 import type { Language } from '~/i18n/types'
 import Layout from '~/layouts/Layout.astro'
 import ContactSection from '~/sections/ContactSection.astro'
@@ -7,7 +7,12 @@ import FaqSection from '~/sections/FaqSection.astro'
 import HeroSection from '~/sections/HeroSection.astro'
 import ServicesSection from '~/sections/ServicesSection.astro'
 
-const lang = (Astro.currentLocale || defaultLang) as Language
+export const getStaticPaths = (() => {
+  const langs: Language[] = ['en', 'es']
+  return langs.map(lang => ({ params: { lang } }))
+}) satisfies GetStaticPaths
+
+const { lang } = Astro.params
 ---
 
 <Layout>

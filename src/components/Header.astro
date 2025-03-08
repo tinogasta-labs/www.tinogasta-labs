@@ -1,13 +1,23 @@
 ---
 import Container from '~/components/shared/Container.astro'
 import Icon from '~/components/ui/Icon.astro'
+import { getTranslations } from '~/i18n'
+import type { Language } from '~/i18n/types'
+
+type Props = {
+  lang: Language
+}
+
+const { lang } = Astro.props
+
+const t = getTranslations(lang)
 
 // Define your navigation items
 const navItems = [
-  { name: 'About', url: '#about' },
-  { name: 'Services', url: '#services' },
-  { name: 'Contact', url: '#contact' },
-  { name: 'FAQ', url: '#faq' },
+  { name: t['nav.about'], url: '#about' },
+  { name: t['nav.services'], url: '#services' },
+  { name: t['nav.contact'], url: '#contact' },
+  { name: t['nav.faq'], url: '#faq' },
 ]
 ---
 
