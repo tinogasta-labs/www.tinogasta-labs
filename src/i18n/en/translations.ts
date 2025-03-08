@@ -52,6 +52,7 @@ const faqs = [
 ]
 
 export default {
+  'nav.home': 'Home',
   'nav.services': 'Services',
   'nav.contact': 'Contact',
   'nav.about': 'About',
@@ -75,4 +76,9 @@ export default {
     'Reach out to us or contribute to our open source projects.',
   'contact.email': 'Email us',
   'contact.contribute': 'Contribute',
+  'footer.title': 'Tinogasta Labs',
+  'footer.subtitle':
+    'Building secure, high-performance applications for the community.',
+  'footer.links': 'Links',
+  'footer.connect': 'Connect',
 } satisfies Translations

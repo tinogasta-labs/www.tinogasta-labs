@@ -2,6 +2,7 @@ import type { IconName } from '@/icon-name'
 export type Language = 'en' | 'es'
 
 export type Translations = {
+  'nav.home': string
   'nav.services': string
   'nav.about': string
   'nav.contact': string
@@ -24,4 +25,8 @@ export type Translations = {
   'contact.subtitle': string
   'contact.email': string
   'contact.contribute': string
+  'footer.title': string
+  'footer.subtitle': string
+  'footer.links': string
+  'footer.connect': string
 }

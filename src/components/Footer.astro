@@ -1,12 +1,21 @@
 ---
+import { getTranslations } from '~/i18n'
+import type { Language } from '~/i18n/types'
 import config from '~/site-config.json'
 import Container from './shared/Container.astro'
 
+export type Props = {
+  lang: Language
+}
+
+const { lang } = Astro.props
+const t = getTranslations(lang)
+
 const links = [
-  { to: '/', label: 'Home' },
-  { to: '#services', label: 'Services' },
-  { to: '#faq', label: 'FAQs' },
-  { to: '#contact', label: 'Contact' },
+  { to: '/', label: t['nav.home'] },
+  { to: '#services', label: t['nav.services'] },
+  { to: '#faq', label: t['nav.faq'] },
+  { to: '#contact', label: t['nav.contact'] },
 ]
 
 const social = [
@@ -21,15 +30,15 @@ const social = [
   <Container>
     <div class="mb-12 grid gap-8 md:grid-cols-2">
       <div>
-        <h1 class="mb-4 text-lg">Tinogasta Labs</h1>
+        <h1 class="mb-4 text-lg">{t['footer.title']}</h1>
         <p class="text-fg-muted text-lg font-light">
-          Building secure, high-performance applications for the community.
+          {t['footer.subtitle']}
         </p>
       </div>
 
       <div class="grid grid-cols-2 gap-8">
         <div>
-          <h2 class="mb-4 text-sm font-medium">Links</h2>
+          <h2 class="mb-4 text-sm font-medium">{t['footer.links']}</h2>
           <ul class="space-y-2">
             {
               links.map(link => (
@@ -44,7 +53,7 @@ const social = [
         </div>
 
         <div>
-          <h2 class="mb-4 text-sm font-medium">Connect</h2>
+          <h2 class="mb-4 text-sm font-medium">{t['footer.connect']}</h2>
           <div class="flex flex-col gap-2">
             {
               social.map(link => (
@@ -61,7 +70,7 @@ const social = [
     <div
       class="border-fg/10 text-fg-muted border-t pt-8 text-center text-base font-light"
     >
-      Thoogasta Labs - {new Date().getFullYear()}
+      Tinogasta Labs - {new Date().getFullYear()}
     </div>
   </Container>
 </footer>
