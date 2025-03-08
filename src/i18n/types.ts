@@ -17,4 +17,7 @@ export type Translations = {
     description: string
     iconName: IconName
   }>
+  'faq.title': string
+  'faq.subtitle': string
+  'faq.list': Array<{ question: string; answer: string }>
 }

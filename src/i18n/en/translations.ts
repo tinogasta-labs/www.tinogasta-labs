@@ -28,6 +28,29 @@ const servicesList = [
   },
 ] satisfies Array<{ title: string; description: string; iconName: IconName }>
 
+const faqs = [
+  {
+    question: 'What types of open source tools do you develop?',
+    answer:
+      'We develop a wide range of open source tools including web applications, developer utilities, security tools, and performance optimization libraries. Our focus is on creating secure, high-performance solutions that solve real-world problems.',
+  },
+  {
+    question: 'How can I contribute to your open source projects?',
+    answer:
+      'You can contribute to our projects by visiting our GitHub repositories, where you can submit pull requests, report issues, or suggest new features. We welcome contributions from developers of all skill levels.',
+  },
+  {
+    question: 'Do you offer support for your open source tools?',
+    answer:
+      'Yes, we provide community support through our GitHub repositories and documentation. For businesses requiring dedicated support, we offer premium support packages that include priority assistance and custom feature development.',
+  },
+  {
+    question: 'Are your tools free to use for commercial projects?',
+    answer:
+      'Most of our tools are released under permissive open source licenses that allow for commercial use. However, specific licensing terms may vary by project, so we recommend checking the license for each tool you plan to use.',
+  },
+]
+
 export default {
   'nav.services': 'Services',
   'nav.contact': 'Contact',
@@ -43,4 +66,8 @@ export default {
   'services.subtitle':
     'We create digital solutions to empower businesses and bring ideas to life.',
   'services.list': servicesList,
+  'faq.title': 'Frequently Asked Questions',
+  'faq.subtitle':
+    'Find answers to common questions about our services and tools.',
+  'faq.list': faqs,
 } satisfies Translations
