@@ -70,4 +70,9 @@ export default {
   'faq.subtitle':
     'Find answers to common questions about our services and tools.',
   'faq.list': faqs,
+  'contact.title': 'Get in touch',
+  'contact.subtitle':
+    'Reach out to us or contribute to our open source projects.',
+  'contact.email': 'Email us',
+  'contact.contribute': 'Contribute',
 } satisfies Translations

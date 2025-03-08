@@ -20,4 +20,8 @@ export type Translations = {
   'faq.title': string
   'faq.subtitle': string
   'faq.list': Array<{ question: string; answer: string }>
+  'contact.title': string
+  'contact.subtitle': string
+  'contact.email': string
+  'contact.contribute': string
 }
