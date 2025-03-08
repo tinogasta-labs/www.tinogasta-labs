@@ -5,4 +5,8 @@ export type Translations = {
   'nav.about': string
   'nav.contact': string
   'nav.faq': string
+  'hero.title': string
+  'hero.subtitle': string
+  'cta.contact': string
+  'cta.contribute': string
 }

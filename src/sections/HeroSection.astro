@@ -1,20 +1,28 @@
 ---
 import Container from '~/components/shared/Container.astro'
+import { getTranslations } from '~/i18n'
+import type { Language } from '~/i18n/types'
 import config from '~/site-config.json'
+
+type Props = {
+  lang: Language
+}
+
+const { lang } = Astro.props
+const t = getTranslations(lang)
 ---
 
 <section class="mt-24 sm:mt-32 md:mt-56">
   <Container>
     <h1
       class="animate-fade-up text-4xl font-light tracking-tight sm:text-[64px]"
-    >
-      We develop <span class="block">open source tools</span> that your clients loves.
-    </h1>
+      set:html={t['hero.title']}
+    />
     <p
       class="text-fg-muted animate-fade-up mt-6 text-xl font-light opacity-0"
       style={{ animationDelay: '0.15s', animationFillMode: 'forwards' }}
     >
-      Building secure, high-performance applications for the community.
+      {t['hero.subtitle']}
     </p>
     <div
       class="animate-fade-up mt-12 flex items-center gap-4 opacity-0"
@@ -23,7 +31,7 @@ import config from '~/site-config.json'
       <a
         href={`mailto:${config.social.email}`}
         class="border-primary bg-primary text-on-primary inline-flex h-12 cursor-pointer items-center rounded-full border px-6 text-sm"
-        >Get in touch</a
+        >{t['cta.contact']}</a
       >
       <a
         href={config.social.github}
@@ -31,7 +39,7 @@ import config from '~/site-config.json'
         rel="noreferrer noopener"
         class="border-fg inline-flex h-12 cursor-pointer items-center rounded-full border px-6 text-sm"
       >
-        Contribute</a
+        {t['cta.contribute']}</a
       >
     </div>
   </Container>
