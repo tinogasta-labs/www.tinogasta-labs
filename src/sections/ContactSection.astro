@@ -30,13 +30,13 @@ const t = getTranslations(lang)
     <div class="grid gap-6 md:grid-cols-2">
       <div class="group hover:bg-fg/10 border-fg/10 border transition-all">
         <a
-          href={`mailto:${config.social.email}`}
+          href={`mailto:${config.social.email}?subject=Consulta%20sobre%20servicios`}
           class="flex items-center gap-4 px-6 py-8"
         >
           <Icon name="envelope-closed" class="text-fg-muted/50 size-5" />
           <div class="flex-1">
             <h1>{t['contact.email']}</h1>
-            <p class="text-fg-muted">contact@tinogasta-labs.com</p>
+            <p class="text-fg-muted">{config.social.email}</p>
           </div>
           <Icon name="external-link" class="text-fg-muted size-4" />
         </a>
