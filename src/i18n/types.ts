@@ -1,5 +1,11 @@
 import type { IconName } from '@/icon-name'
-export type Language = 'en' | 'es'
+
+export const langs = {
+  en: 'English',
+  es: 'Spanish',
+}
+
+export type Language = keyof typeof langs
 
 export type Translations = {
   'nav.home': string

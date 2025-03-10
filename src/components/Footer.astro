@@ -1,4 +1,5 @@
 ---
+import LocaleSelect from '~/components/LocaleSelect.astro'
 import { getTranslations } from '~/i18n'
 import type { Language } from '~/i18n/types'
 import config from '~/site-config.json'
@@ -68,9 +69,12 @@ const social = [
     </div>
 
     <div
-      class="border-fg/10 text-fg-muted border-t pt-8 text-center text-base font-light"
+      class="border-fg/10 text-fg-muted xs:flex-row-reverse flex flex-col items-center justify-between gap-16 border-t pt-8 text-center text-base font-light"
     >
-      Tinogasta Labs - {new Date().getFullYear()}
+      <LocaleSelect />
+      <span class="whitespace-nowrap">
+        Tinogasta Labs - {new Date().getFullYear()}
+      </span>
     </div>
   </Container>
 </footer>

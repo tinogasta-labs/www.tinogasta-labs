@@ -1,0 +1,44 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { langs } from '~/i18n/types'
+import Icon from './ui/Icon.astro'
+
+const currentLocale = Astro.currentLocale
+
+const locales = Object.entries(langs).map(([value, label]) => ({
+  value,
+  path: getRelativeLocaleUrl(
+    value,
+    Astro.url.pathname.replace(/^\/[a-zA-Z-]+/, ''),
+  ),
+  label,
+}))
+---
+
+<label class="border-panel/50 xs:w-56 relative inline-block w-full border-2">
+  <select class="h-10 w-full appearance-none px-4 outline-none" data-lang>
+    {
+      locales.map(lang => (
+        <option
+          selected={lang.value === currentLocale}
+          data-lang={lang.value}
+          class="bg-panel text-fg-muted"
+          value={lang.path}
+        >
+          {lang.label}
+        </option>
+      ))
+    }
+  </select>
+  <Icon
+    name="chevron-down"
+    class="text-fg-muted absolute top-2.5 right-4 size-4"
+  />
+</label>
+
+<script is:inline>
+  const select = document.querySelector('[data-lang]')
+  select.addEventListener('change', e => {
+    location.href = e.target?.value
+  })
+</script>

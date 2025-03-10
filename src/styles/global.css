@@ -18,6 +18,8 @@
   --color-primary: var(--primary);
   --color-on-primary: var(--on-primary);
 
+  --breakpoint-xs: 475px;
+
   --animate-fade-up: fade-up 0.5s;
 
   @keyframes fade-up {

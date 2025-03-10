@@ -32,15 +32,15 @@ const faqs = [
   {
     question: '¿Qué tipo de herramientas desarrollan?',
     answer:
-      'Desarrollamos una amplia variedad de herramientas de código abierto, incluyendo aplicaciones web, utilidades para desarrolladores, herramientas de seguridad y bibliotecas de optimización de rendimiento. Nos enfocamos en crear soluciones seguras y de alto rendimiento que resuelvan problemas del mundo real.',
+      'Desarrollamos una amplia variedad de herramientas de código abierto, incluyendo aplicaciones web y utilidades para desarrolladores. Nos enfocamos en crear soluciones seguras y de alto rendimiento que resuelvan problemas del mundo real.',
   },
   {
-    question: '¿Cómo puedo contribuir a sus proyectos de código abierto?',
+    question: '¿Cómo puedo contribuir a sus proyectos?',
     answer:
       'Puedes contribuir a nuestros proyectos visitando nuestros repositorios en GitHub, donde puedes enviar pull requests, reportar problemas o sugerir nuevas funciones. Aceptamos contribuciones de desarrolladores de todos los niveles de experiencia.',
   },
   {
-    question: '¿Ofrecen soporte para sus herramientas de código abierto?',
+    question: '¿Ofrecen soporte para sus herramientas?',
     answer:
       'Sí, brindamos soporte comunitario a través de nuestros repositorios en GitHub y documentación. Para empresas que necesiten soporte dedicado, ofrecemos paquetes de soporte premium que incluyen asistencia prioritaria y desarrollo de funciones personalizadas.',
   },
