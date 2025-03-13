@@ -27,10 +27,10 @@ const services = t['services.list']
       </p>
     </header>
 
-    <ul class="grid gap-6 sm:grid-cols-2">
+    <ul class="grid gap-6 lg:grid-cols-3">
       {
         services.map(service => (
-          <li class="border-outline hover:bg-canvas-muted cursor-pointer rounded-4xl border p-8 transition-colors md:p-12">
+          <li class="border-outline bg-canvas-muted rounded-4xl border p-8 transition-colors md:p-12">
             <Icon
               name={service.iconName}
               class="text-fg-muted size-6 md:size-8"

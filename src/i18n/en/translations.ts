@@ -9,12 +9,6 @@ const servicesList = [
     iconName: 'code',
   },
   {
-    title: 'Developer Tools',
-    description:
-      'We create tools to streamline workflows, enhance the developer experience, and improve software quality.',
-    iconName: 'gear',
-  },
-  {
     title: 'Performance Optimization',
     description:
       'We optimize websites and applications for speed and efficiency with advanced techniques, monitoring, and best practices.',

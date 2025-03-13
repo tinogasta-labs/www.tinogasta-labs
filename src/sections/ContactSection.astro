@@ -15,45 +15,46 @@ const t = getTranslations(lang)
 ---
 
 <section
-  class="animate-fade-up bg-canvas mt-24 rounded-4xl px-8 py-16 opacity-0 sm:mt-32 md:mt-56"
-  id="contact"
+  class="animate-fade-up mx-auto mt-24 max-w-6xl opacity-0 sm:mt-32 sm:px-6 md:mt-56"
   style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}
 >
-  <Container>
-    <header class="mb-24 flex flex-col gap-4">
-      <h1 class="text-fg-inverted text-2xl font-medium sm:text-4xl">
-        {t['contact.title']}
-      </h1>
-      <p class="text-fg-muted-inverted text-xl leading-6">
-        {t['contact.subtitle']}
-      </p>
-    </header>
+  <div class="bg-canvas rounded-4xl px-8 py-16 sm:px-16 sm:py-32" id="contact">
+    <Container>
+      <header class="mb-24 flex flex-col gap-4">
+        <h1 class="text-fg-inverted text-2xl font-medium sm:text-4xl">
+          {t['contact.title']}
+        </h1>
+        <p class="text-fg-muted-inverted text-xl leading-6">
+          {t['contact.subtitle']}
+        </p>
+      </header>
 
-    <div class="grid gap-6 md:grid-cols-2">
-      <div class="group transition-all">
-        <a
-          href={`mailto:${config.social.email}?subject=Consulta%20sobre%20servicios`}
-          class="bg-canvas ring-fg-muted flex items-center gap-4 rounded-lg px-6 py-8 ring"
-        >
-          <Icon name="envelope-closed" class="text-fg-muted size-5" />
-          <span class="text-fg-inverted flex-1">
-            {t['contact.email']}
-          </span>
-          <Icon name="external-link" class="text-fg-muted size-4" />
-        </a>
+      <div class="grid gap-6 sm:grid-cols-2">
+        <div class="group transition-all">
+          <a
+            href={`mailto:${config.social.email}?subject=Consulta%20sobre%20servicios`}
+            class="bg-canvas ring-fg-muted flex items-center gap-4 rounded-lg px-6 py-8 ring"
+          >
+            <Icon name="envelope-closed" class="text-fg-muted size-5" />
+            <span class="text-fg-inverted flex-1">
+              {t['contact.email']}
+            </span>
+            <Icon name="external-link" class="text-fg-muted size-4" />
+          </a>
+        </div>
+        <div class="group hover:bg-fg/10 border-fg/10 border transition-all">
+          <a
+            href={config.social.github}
+            class="bg-canvas ring-fg-muted flex items-center gap-4 rounded-lg px-6 py-8 ring"
+          >
+            <Icon name="github-logo" class="text-fg-muted size-5" />
+            <span class="text-fg-inverted flex-1">
+              {t['contact.contribute']}
+            </span>
+            <Icon name="external-link" class="text-fg-muted size-4" />
+          </a>
+        </div>
       </div>
-      <div class="group hover:bg-fg/10 border-fg/10 border transition-all">
-        <a
-          href={config.social.github}
-          class="bg-canvas ring-fg-muted flex items-center gap-4 rounded-lg px-6 py-8 ring"
-        >
-          <Icon name="github-logo" class="text-fg-muted size-5" />
-          <span class="text-fg-inverted flex-1">
-            {t['contact.contribute']}
-          </span>
-          <Icon name="external-link" class="text-fg-muted size-4" />
-        </a>
-      </div>
-    </div>
-  </Container>
+    </Container>
+  </div>
 </section>
