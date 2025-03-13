@@ -12,14 +12,14 @@ const { lang } = Astro.props
 const t = getTranslations(lang)
 ---
 
-<section class="mt-24 sm:mt-32 md:mt-56">
+<section class="mt-24 px-6 sm:mt-32 md:mt-56">
   <Container>
     <h1
-      class="animate-fade-up text-4xl font-light tracking-tight sm:text-[64px]"
+      class="animate-fade-up text-4xl font-medium tracking-tight sm:text-[64px]"
       set:html={t['hero.title']}
     />
     <p
-      class="text-fg-muted animate-fade-up mt-6 text-xl font-light opacity-0"
+      class="text-fg-muted animate-fade-up mt-6 text-xl opacity-0"
       style={{ animationDelay: '0.15s', animationFillMode: 'forwards' }}
     >
       {t['hero.subtitle']}
@@ -30,7 +30,7 @@ const t = getTranslations(lang)
     >
       <a
         href={`mailto:${config.social.email}?subject=Consulta%20sobre%20servicios`}
-        class="border-primary bg-primary text-on-primary inline-flex h-12 cursor-pointer items-center rounded-full border px-6 text-sm"
+        class="border-canvas bg-canvas text-fg-inverted inline-flex h-12 cursor-pointer items-center rounded-full border px-6 text-sm"
         >{t['cta.contact']}</a
       >
       <a

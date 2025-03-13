@@ -15,14 +15,14 @@ const faqs = t['faq.list']
 ---
 
 <section
-  class="animate-fade-up mt-24 opacity-0 sm:mt-32 md:mt-56"
+  class="animate-fade-up mt-24 px-6 opacity-0 sm:mt-32 md:mt-56"
   id="faq"
   style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}
 >
   <Container>
     <header class="mb-24 flex flex-col gap-4">
-      <h1 class="text-2xl sm:text-4xl">{t['faq.title']}</h1>
-      <p class="text-fg-muted text-xl font-light">
+      <h1 class="text-2xl font-medium sm:text-4xl">{t['faq.title']}</h1>
+      <p class="text-fg-muted text-xl leading-6">
         {t['faq.subtitle']}
       </p>
     </header>
@@ -30,20 +30,20 @@ const faqs = t['faq.list']
     <div>
       {
         faqs.map((faq, idx) => (
-          <div class="border-fg/10 mb-4 border-b pb-4">
+          <div class="border-outline mb-4 border-b pb-4">
             <button
               aria-expanded="false"
               aria-controls="1"
-              class="faq-question flex w-full items-center justify-between gap-4 py-4 text-left"
+              class="faq-question flex w-full cursor-pointer items-center justify-between gap-4 py-4 text-left"
             >
-              <h1 class="text-xl">{faq.question}</h1>
+              <h1 class="text-lg font-medium">{faq.question}</h1>
               <Icon name="chevron-down" class="text-fg-muted size-5 shrink-0" />
             </button>
             <div
               class="faq-answer max-h-0 transform overflow-hidden opacity-0 transition-all duration-300 ease-in-out"
               id={`answer-${idx}`}
             >
-              <p class="text-fg-muted pb-6 text-lg leading-relaxed font-light">
+              <p class="text-fg-muted pb-6 text-lg leading-relaxed">
                 {faq.answer}
               </p>
             </div>

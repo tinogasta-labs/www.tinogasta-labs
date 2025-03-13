@@ -1,22 +1,28 @@
 @import 'tailwindcss';
 
 :root {
-  --canvas: #171717;
-  --panel: #2a2a2a;
-  --fg: #f2f0e3;
-  --fg-muted: #a1a1a2;
-  --primary: #f2f0e3;
-  --on-primary: #171717;
+  --canvas-default: #191521;
+  --canvas-primary: #f9f6ff;
+  --canvas-muted: #efecf4;
+  --fg-default: #191521;
+  --fg-muted: #646066;
+  --fg-default-inverted: #f9f6ff;
+  --fg-muted-inverted: #b7b5b9;
+  --accent: #c7a4dd;
+  --outline: #eae7f0;
 }
 
 @theme {
   --font-sans: 'Mona Sans Variable', ui-sans-serif, system-ui, sans-serif;
-  --color-canvas: var(--canvas);
-  --color-panel: var(--panel);
-  --color-fg: var(--fg);
+  --color-canvas: var(--canvas-default);
+  --color-canvas-primary: var(--canvas-primary);
+  --color-canvas-muted: var(--canvas-muted);
+  --color-fg: var(--fg-default);
   --color-fg-muted: var(--fg-muted);
-  --color-primary: var(--primary);
-  --color-on-primary: var(--on-primary);
+  --color-fg-inverted: var(--fg-default-inverted);
+  --color-fg-muted-inverted: var(--fg-muted-inverted);
+  --color-accent: var(--accent);
+  --color-outline: var(--outline);
 
   --breakpoint-xs: 475px;
 
@@ -38,11 +44,10 @@
 }
 
 :root {
-  color-scheme: dark;
   scrollbar-gutter: stable;
   scroll-behavior: smooth;
 }
 
 body {
-  @apply text-fg bg-canvas min-h-screen min-w-[320px] antialiased;
+  @apply text-fg bg-canvas min-h-screen min-w-[375px] antialiased;
 }
