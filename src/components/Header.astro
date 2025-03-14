@@ -3,6 +3,7 @@ import Container from '~/components/shared/Container.astro'
 import Icon from '~/components/ui/Icon.astro'
 import { getTranslations } from '~/i18n'
 import type { Language } from '~/i18n/types'
+import ThemeToggle from './ThemeToggle.astro'
 
 type Props = {
   lang: Language
@@ -47,8 +48,10 @@ const navItems = [
           }
         </div>
 
-        <!-- Mobile menu button -->
-        <div class="flex items-center md:hidden">
+        <div class="flex items-center gap-4 md:hidden">
+          <!-- Toggle theme -->
+          <ThemeToggle />
+          <!-- Mobile menu button -->
           <button
             type="button"
             id="mobile-menu-button"

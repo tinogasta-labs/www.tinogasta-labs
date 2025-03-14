@@ -31,6 +31,16 @@ const { title, description, keywords, image } = Astro.props
       href={monaFont}
       crossorigin="anonymous"
     />
+    <script>
+      let theme = localStorage.getItem('theme')
+      if (!theme) {
+        const prefersDark = window.matchMedia(
+          '(prefers-color-scheme: dark)',
+        ).matches
+        theme = prefersDark ? 'dark' : 'light'
+      }
+      document.documentElement.dataset.theme = theme
+    </script>
     <BaseHead
       title={title}
       description={description}

@@ -1,0 +1,57 @@
+---
+import Icon from './ui/Icon.astro'
+---
+
+<button
+  class="theme-toggle z-50 inline-flex items-center justify-center rounded-md p-2"
+  aria-label="Theme Toggle"
+  data-theme-toggle
+>
+  <Icon name="sun" class="sun-icon hidden size-4" />
+  <Icon name="moon" class="moon-icon hidden size-4" />
+</button>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    const setIconDisplays = () => {
+      const theme = document.documentElement.dataset.theme
+      document.querySelectorAll('.theme-toggle .sun-icon').forEach(icon => {
+        icon.style.display = theme === 'dark' ? 'none' : 'block'
+      })
+      document.querySelectorAll('.theme-toggle .moon-icon').forEach(icon => {
+        icon.style.display = theme === 'dark' ? 'block' : 'none'
+      })
+    }
+
+    const getTheme = () => {
+      if (localStorage.getItem('theme')) {
+        return localStorage.getItem('theme')
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light'
+    }
+    document.documentElement.dataset.theme = getTheme()
+    setIconDisplays()
+
+    if (!window.themeToggleInitialized) {
+      window.themeToggleInitialized = true
+      document.addEventListener('click', event => {
+        const button = event.target.closest('.theme-toggle')
+        if (button) {
+          const newTheme =
+            document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
+          document.documentElement.dataset.theme = newTheme
+          localStorage.setItem('theme', newTheme)
+          setIconDisplays()
+        }
+      })
+    }
+  })
+</script>
+
+<style>
+  body:has(#mobile-menu.open) [data-theme-toggle] {
+    color: var(--fg-muted-inverted);
+  }
+</style>
