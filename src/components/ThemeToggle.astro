@@ -1,0 +1,49 @@
+---
+import Icon from './ui/Icon.astro'
+---
+
+<button
+  class="z-50 inline-flex items-center justify-center rounded-md p-2"
+  id="themeToggle"
+  aria-label="Theme Toggle"
+>
+  <Icon name="sun" class="size-4" id="sun-icon" />
+  <Icon name="moon" class="size-4" id="moon-icon" />
+</button>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    const button = document.getElementById('themeToggle')
+    const root = document.documentElement
+    const sunIcon = document.getElementById('sun-icon')
+    const moonIcon = document.getElementById('moon-icon')
+
+    const getTheme = () => {
+      if (localStorage.getItem('theme')) {
+        return localStorage.getItem('theme')
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light'
+    }
+
+    const setTheme = theme => {
+      root.dataset.theme = theme
+      localStorage.setItem('theme', theme)
+      sunIcon.style.display = theme === 'dark' ? 'none' : 'block'
+      moonIcon.style.display = theme === 'dark' ? 'block' : 'none'
+    }
+
+    setTheme(getTheme())
+
+    button?.addEventListener('click', () => {
+      setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark')
+    })
+  })
+</script>
+
+<style>
+  body:has(#mobile-menu.open) #themeToggle {
+    color: var(--fg-muted-inverted);
+  }
+</style>

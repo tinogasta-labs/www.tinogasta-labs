@@ -12,7 +12,7 @@
   --outline: #eae7f0;
 }
 
-:root.dark {
+:root[data-theme='dark'] {
   --canvas-default: #2d273b;
   --canvas-primary: #191521;
   --canvas-muted: #201c28;
@@ -20,6 +20,8 @@
   --fg-muted: #b7b5b9;
   --outline: #24212c;
 }
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
   --font-sans: 'Mona Sans Variable', ui-sans-serif, system-ui, sans-serif;
