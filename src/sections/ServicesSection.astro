@@ -15,30 +15,30 @@ const services = t['services.list']
 ---
 
 <section
-  class="animate-fade-up mt-24 opacity-0 sm:mt-32 md:mt-56"
+  class="animate-fade-up mt-24 px-6 opacity-0 sm:mt-32 md:mt-56"
   id="services"
   style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}
 >
   <Container>
     <header class="mb-16 flex flex-col gap-4">
-      <h1 class="text-2xl sm:text-4xl">{t['services.title']}</h1>
-      <p class="text-fg-muted text-xl font-light">
+      <h1 class="text-2xl font-medium sm:text-4xl">{t['services.title']}</h1>
+      <p class="text-fg-muted text-xl">
         {t['services.subtitle']}
       </p>
     </header>
 
-    <ul class="grid gap-6 sm:grid-cols-2">
+    <ul class="grid gap-6 lg:grid-cols-3">
       {
         services.map(service => (
-          <li class="border-fg/10 border p-8 md:p-12">
+          <li class="border-outline bg-canvas-muted rounded-4xl border p-8 transition-colors md:p-12">
             <Icon
               name={service.iconName}
-              class="text-fg-muted/50 size-6 md:size-8"
+              class="text-fg-muted size-6 md:size-8"
             />
-            <h1 class="mt-8 mb-4 text-xl sm:mt-12 sm:text-2xl">
+            <h1 class="mt-8 mb-4 text-xl font-medium sm:mt-12 sm:text-2xl">
               {service.title}
             </h1>
-            <p class="text-fg-muted font-light sm:text-lg">
+            <p class="text-fg-muted leading-6 sm:text-lg">
               {service.description}
             </p>
           </li>

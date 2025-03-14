@@ -39,9 +39,11 @@ const { title, description, keywords, image } = Astro.props
     />
   </head>
   <body>
-    <div class="flex min-h-screen flex-col">
+    <div
+      class="bg-canvas-primary mt-2 flex min-h-screen flex-col rounded-t-4xl"
+    >
       <Header lang={lang} />
-      <main class="flex-1 px-6">
+      <main class="flex-1">
         <slot />
       </main>
       <Footer lang={lang} />

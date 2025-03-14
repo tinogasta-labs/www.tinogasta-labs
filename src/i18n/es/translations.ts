@@ -9,12 +9,6 @@ const servicesList = [
     iconName: 'code',
   },
   {
-    title: 'Herramientas para Desarrolladores',
-    description:
-      'Creamos herramientas para optimizar flujos de trabajo, mejorar la experiencia del desarrollador y aumentar la calidad del software.',
-    iconName: 'gear',
-  },
-  {
     title: 'Optimización de Rendimiento',
     description:
       'Optimizamos sitios web y aplicaciones para mayor velocidad y eficiencia mediante técnicas avanzadas, monitoreo y mejores prácticas.',

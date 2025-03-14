@@ -27,7 +27,9 @@ const navItems = [
       <div class="flex h-24 justify-between">
         <div class="flex items-center">
           <div class="flex-shrink-0">
-            <a href="/" class="text-lg sm:text-xl">Tinogasta Labs</a>
+            <a href="/" class="text-lg font-medium sm:text-xl" id="logo"
+              >Tinogasta Labs</a
+            >
           </div>
         </div>
 
@@ -59,7 +61,11 @@ const navItems = [
             <!-- Icon when menu is closed -->
             <Icon name="menu" class="size-5" id="menu-closed-icon" />
             <!-- Icon when menu is open -->
-            <Icon name="cross-2" class="hidden size-5" id="menu-open-icon" />
+            <Icon
+              name="cross-2"
+              class="text-fg-muted-inverted hidden size-5"
+              id="menu-open-icon"
+            />
           </button>
         </div>
       </div>
@@ -76,7 +82,7 @@ const navItems = [
           navItems.map(item => (
             <a
               href={item.url}
-              class="mobile-menu-link text-fg-muted text-2xl font-light transition-colors duration-200"
+              class="mobile-menu-link text-fg-muted-inverted hover:text-accent text-2xl font-light transition-colors duration-200"
             >
               {item.name}
             </a>
@@ -139,5 +145,9 @@ const navItems = [
   #mobile-menu.open {
     opacity: 1;
     pointer-events: auto;
+  }
+
+  body:has(#mobile-menu.open) #logo {
+    color: var(--fg-muted-inverted);
   }
 </style>

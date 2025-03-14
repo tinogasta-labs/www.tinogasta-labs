@@ -25,14 +25,12 @@ const social = [
 ]
 ---
 
-<footer
-  class="border-fg/10 mt-24 border-t px-6 py-12 sm:mt-32 md:mt-56 md:px-8 lg:px-16"
->
+<footer class="mt-24 px-6 py-12 sm:mt-32 md:mt-56 md:px-8 lg:px-16">
   <Container>
     <div class="mb-12 grid gap-8 md:grid-cols-2">
       <div>
-        <h1 class="mb-4 text-lg">{t['footer.title']}</h1>
-        <p class="text-fg-muted text-lg font-light">
+        <h1 class="mb-4 font-medium">{t['footer.title']}</h1>
+        <p class="text-fg-muted">
           {t['footer.subtitle']}
         </p>
       </div>
@@ -40,7 +38,7 @@ const social = [
       <div class="grid grid-cols-2 gap-8">
         <div>
           <h2 class="mb-4 text-sm font-medium">{t['footer.links']}</h2>
-          <ul class="space-y-2">
+          <ul class="space-y-4">
             {
               links.map(link => (
                 <li>
@@ -55,7 +53,7 @@ const social = [
 
         <div>
           <h2 class="mb-4 text-sm font-medium">{t['footer.connect']}</h2>
-          <div class="flex flex-col gap-2">
+          <div class="flex flex-col gap-4">
             {
               social.map(link => (
                 <a href={link.href} class="text-fg-muted">
@@ -69,10 +67,10 @@ const social = [
     </div>
 
     <div
-      class="border-fg/10 text-fg-muted xs:flex-row-reverse flex flex-col items-center justify-between gap-16 border-t pt-8 text-center text-base font-light"
+      class="border-outline text-fg-muted xs:flex-row-reverse flex flex-col items-center justify-between gap-16 border-t pt-8 text-center text-base font-light"
     >
       <LocaleSelect />
-      <span class="whitespace-nowrap">
+      <span class="text-fg font-medium whitespace-nowrap">
         Tinogasta Labs - {new Date().getFullYear()}
       </span>
     </div>

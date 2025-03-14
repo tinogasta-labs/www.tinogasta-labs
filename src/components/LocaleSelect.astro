@@ -15,14 +15,16 @@ const locales = Object.entries(langs).map(([value, label]) => ({
 }))
 ---
 
-<label class="border-panel/50 xs:w-56 relative inline-block w-full border-2">
+<label
+  class="border-outline xs:w-56 bg-canvas-muted text-fg-muted relative inline-block w-full rounded-lg border-2 font-medium"
+>
   <select class="h-10 w-full appearance-none px-4 outline-none" data-lang>
     {
       locales.map(lang => (
         <option
           selected={lang.value === currentLocale}
           data-lang={lang.value}
-          class="bg-panel text-fg-muted"
+          class="bg-canvas-muted text-fg-muted"
           value={lang.path}
         >
           {lang.label}
@@ -32,7 +34,7 @@ const locales = Object.entries(langs).map(([value, label]) => ({
   </select>
   <Icon
     name="chevron-down"
-    class="text-fg-muted absolute top-2.5 right-4 size-4"
+    class="text-fg-muted pointer-events-none absolute top-2.5 right-4 size-4"
   />
 </label>
 
