@@ -49,5 +49,5 @@
 }
 
 body {
-  @apply text-fg bg-canvas min-h-screen min-w-[375px] antialiased;
+  @apply text-fg bg-canvas min-h-screen min-w-[320px] antialiased;
 }
