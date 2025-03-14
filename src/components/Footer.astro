@@ -3,6 +3,7 @@ import LocaleSelect from '~/components/LocaleSelect.astro'
 import { getTranslations } from '~/i18n'
 import type { Language } from '~/i18n/types'
 import config from '~/site-config.json'
+import ThemeToggle from './ThemeToggle.astro'
 import Container from './shared/Container.astro'
 
 export type Props = {
@@ -25,7 +26,7 @@ const social = [
 ]
 ---
 
-<footer class="mt-24 px-6 py-12 sm:mt-32 md:mt-56 md:px-8 lg:px-16">
+<footer class="xs:pb-24 mt-24 px-6 py-12 sm:mt-32 md:mt-56 md:px-8 lg:px-16">
   <Container>
     <div class="mb-12 grid gap-8 md:grid-cols-2">
       <div>
@@ -69,7 +70,12 @@ const social = [
     <div
       class="border-outline text-fg-muted xs:flex-row-reverse flex flex-col items-center justify-between gap-16 border-t pt-8 text-center text-base font-light"
     >
-      <LocaleSelect />
+      <div class="xs:w-auto flex items-center gap-4">
+        <LocaleSelect />
+        <div class="hidden sm:inline-block">
+          <ThemeToggle />
+        </div>
+      </div>
       <span class="text-fg-muted whitespace-nowrap">
         Tinogasta Labs - {new Date().getFullYear()}
       </span>

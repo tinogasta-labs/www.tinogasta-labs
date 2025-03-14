@@ -3,20 +3,25 @@ import Icon from './ui/Icon.astro'
 ---
 
 <button
-  class="z-50 inline-flex items-center justify-center rounded-md p-2"
-  id="themeToggle"
+  class="theme-toggle z-50 inline-flex items-center justify-center rounded-md p-2"
   aria-label="Theme Toggle"
+  data-theme-toggle
 >
-  <Icon name="sun" class="hidden size-4" id="sun-icon" />
-  <Icon name="moon" class="hidden size-4" id="moon-icon" />
+  <Icon name="sun" class="sun-icon hidden size-4" />
+  <Icon name="moon" class="moon-icon hidden size-4" />
 </button>
 
 <script is:inline>
   document.addEventListener('astro:page-load', () => {
-    const button = document.getElementById('themeToggle')
-    const root = document.documentElement
-    const sunIcon = document.getElementById('sun-icon')
-    const moonIcon = document.getElementById('moon-icon')
+    const setIconDisplays = () => {
+      const theme = document.documentElement.dataset.theme
+      document.querySelectorAll('.theme-toggle .sun-icon').forEach(icon => {
+        icon.style.display = theme === 'dark' ? 'none' : 'block'
+      })
+      document.querySelectorAll('.theme-toggle .moon-icon').forEach(icon => {
+        icon.style.display = theme === 'dark' ? 'block' : 'none'
+      })
+    }
 
     const getTheme = () => {
       if (localStorage.getItem('theme')) {
@@ -26,24 +31,27 @@ import Icon from './ui/Icon.astro'
         ? 'dark'
         : 'light'
     }
+    document.documentElement.dataset.theme = getTheme()
+    setIconDisplays()
 
-    const setTheme = theme => {
-      root.dataset.theme = theme
-      localStorage.setItem('theme', theme)
-      sunIcon.style.display = theme === 'dark' ? 'none' : 'block'
-      moonIcon.style.display = theme === 'dark' ? 'block' : 'none'
+    if (!window.themeToggleInitialized) {
+      window.themeToggleInitialized = true
+      document.addEventListener('click', event => {
+        const button = event.target.closest('.theme-toggle')
+        if (button) {
+          const newTheme =
+            document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
+          document.documentElement.dataset.theme = newTheme
+          localStorage.setItem('theme', newTheme)
+          setIconDisplays()
+        }
+      })
     }
-
-    setTheme(getTheme())
-
-    button?.addEventListener('click', () => {
-      setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark')
-    })
   })
 </script>
 
 <style>
-  body:has(#mobile-menu.open) #themeToggle {
+  body:has(#mobile-menu.open) [data-theme-toggle] {
     color: var(--fg-muted-inverted);
   }
 </style>
