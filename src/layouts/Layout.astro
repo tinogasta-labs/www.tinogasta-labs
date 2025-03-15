@@ -31,7 +31,7 @@ const { title, description, keywords, image } = Astro.props
       href={monaFont}
       crossorigin="anonymous"
     />
-    <script>
+    <script is:inline>
       let theme = localStorage.getItem('theme')
       if (!theme) {
         const prefersDark = window.matchMedia(

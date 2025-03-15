@@ -13,40 +13,43 @@ import Icon from './ui/Icon.astro'
 
 <script is:inline>
   document.addEventListener('astro:page-load', () => {
-    const setIconDisplays = () => {
-      const theme = document.documentElement.dataset.theme
-      document.querySelectorAll('.theme-toggle .sun-icon').forEach(icon => {
-        icon.style.display = theme === 'dark' ? 'none' : 'block'
-      })
-      document.querySelectorAll('.theme-toggle .moon-icon').forEach(icon => {
-        icon.style.display = theme === 'dark' ? 'block' : 'none'
-      })
-    }
+    const buttons = document.querySelectorAll('[data-theme-toggle]')
+    const root = document.documentElement
 
-    const getTheme = () => {
-      if (localStorage.getItem('theme')) {
-        return localStorage.getItem('theme')
-      }
-      return window.matchMedia('(prefers-color-scheme: dark)').matches
+    const getTheme = () =>
+      localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches
         ? 'dark'
-        : 'light'
-    }
-    document.documentElement.dataset.theme = getTheme()
-    setIconDisplays()
+        : 'light')
 
-    if (!window.themeToggleInitialized) {
-      window.themeToggleInitialized = true
-      document.addEventListener('click', event => {
-        const button = event.target.closest('.theme-toggle')
-        if (button) {
-          const newTheme =
-            document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
-          document.documentElement.dataset.theme = newTheme
-          localStorage.setItem('theme', newTheme)
-          setIconDisplays()
-        }
+    const updateIcons = theme => {
+      buttons.forEach(button => {
+        button
+          .querySelector('.sun-icon')
+          .classList.toggle('hidden', theme === 'dark')
+        button
+          .querySelector('.moon-icon')
+          .classList.toggle('hidden', theme !== 'dark')
       })
     }
+
+    const applyTheme = theme => {
+      root.dataset.theme = theme
+      localStorage.setItem('theme', theme)
+      updateIcons(theme)
+    }
+
+    if (window.__themeToggleInitialized) return
+    window.__themeToggleInitialized = true
+
+    buttons.forEach(button => {
+      button.addEventListener('click', e => {
+        e.stopPropagation()
+        applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark')
+      })
+    })
+
+    applyTheme(getTheme())
   })
 </script>
 

@@ -35,7 +35,7 @@
   --color-accent: var(--accent);
   --color-outline: var(--outline);
 
-  --breakpoint-xs: 475px;
+  --breakpoint-xs: 520px;
 
   --animate-fade-up: fade-up 0.5s;
 
