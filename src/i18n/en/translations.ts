@@ -51,7 +51,7 @@ const faqs = [
 ]
 
 export default {
-  'page.title': 'Tinogasta Labs | Digital Solutions',
+  'page.title': 'Tinogasta Labs - Digital Solutions',
   'page.description':
     'Building secure, fast, and optimized applications for the community and your customers.',
   'nav.home': 'Home',

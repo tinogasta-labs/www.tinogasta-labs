@@ -50,4 +50,10 @@ const ogImage = new URL(image ? image : config.image, Astro.url).href
 <!-- Lang -->
 <meta http-equiv="Content-Language" content={Astro.currentLocale} />
 
+<!-- Robots -->
+<meta name="robots" content="index, follow" />
+
+<!-- Theme color -->
+<meta name="theme-color" content="#191521" />
+
 <ClientRouter />

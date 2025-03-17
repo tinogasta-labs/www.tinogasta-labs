@@ -51,7 +51,7 @@ const faqs = [
 ]
 
 export default {
-  'page.title': 'Tinogasta Labs | Soluciones Digitales',
+  'page.title': 'Tinogasta Labs - Soluciones Digitales',
   'page.description':
     'Creamos aplicaciones seguras, rápidas y optimizadas para la comunidad y tus clientes.',
   'nav.home': 'Inicio',
