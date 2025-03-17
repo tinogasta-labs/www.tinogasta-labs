@@ -69,7 +69,7 @@ export default {
   'services.subtitle':
     'Creamos soluciones digitales para ayudar a las empresas a crecer y hacer realidad sus ideas.',
   'services.list': servicesList,
-  'faq.title': 'Tus Preguntas Respondidas',
+  'faq.title': 'Preguntas Frecuentes',
   'faq.subtitle':
     'Encuentra respuestas a tus preguntas sobre nuestros servicios y herramientas.',
   'faq.list': faqs,
