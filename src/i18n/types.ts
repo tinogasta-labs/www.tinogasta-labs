@@ -8,6 +8,8 @@ export const langs = {
 export type Language = keyof typeof langs
 
 export type Translations = {
+  'page.title': string
+  'page.description': string
   'nav.home': string
   'nav.services': string
   'nav.about': string

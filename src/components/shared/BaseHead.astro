@@ -47,4 +47,7 @@ const ogImage = new URL(image ? image : config.image, Astro.url).href
 <!-- Sitemap -->
 <link rel="sitemap" href="/sitemap-index.xml" />
 
+<!-- Lang -->
+<meta http-equiv="Content-Language" content={Astro.currentLocale} />
+
 <ClientRouter />

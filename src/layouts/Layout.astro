@@ -6,7 +6,7 @@ import BaseHead from '~/components/shared/BaseHead.astro'
 import '@fontsource-variable/mona-sans'
 import monaFont from '@fontsource-variable/mona-sans/files/mona-sans-latin-wght-normal.woff2?url'
 import '~/styles/global.css'
-import { defaultLang } from '~/i18n'
+import { defaultLang, getTranslations } from '~/i18n'
 import type { Language } from '~/i18n/types'
 
 interface Props {
@@ -18,7 +18,14 @@ interface Props {
 
 const lang = (Astro.currentLocale || defaultLang) as Language
 
-const { title, description, keywords, image } = Astro.props
+const t = getTranslations(lang)
+
+const {
+  title = t['page.title'],
+  description = t['page.description'],
+  keywords,
+  image,
+} = Astro.props
 ---
 
 <!doctype html>
