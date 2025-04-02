@@ -3,8 +3,6 @@ import BackToTop from '~/components/BackToTop.astro'
 import Footer from '~/components/Footer.astro'
 import Header from '~/components/Header.astro'
 import BaseHead from '~/components/shared/BaseHead.astro'
-import '@fontsource-variable/mona-sans'
-import monaFont from '@fontsource-variable/mona-sans/files/mona-sans-latin-wght-normal.woff2?url'
 import '~/styles/global.css'
 import { defaultLang, getTranslations } from '~/i18n'
 import type { Language } from '~/i18n/types'
@@ -35,7 +33,7 @@ const {
       rel="preload"
       as="font"
       type="font/woff2"
-      href={monaFont}
+      href="/assets/fonts/mona-sans-variable.woff2"
       crossorigin="anonymous"
     />
     <script is:inline>
