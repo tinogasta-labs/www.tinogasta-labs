@@ -4,6 +4,8 @@ import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
 import { iconsSpritesheet } from 'vite-plugin-icons-spritesheet'
 
+import compress from 'astro-compress'
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://tinolabs.top',
@@ -49,5 +51,5 @@ export default defineConfig({
     port: 3000,
   },
 
-  integrations: [sitemap()],
+  integrations: [sitemap(), compress({ SVG: false })],
 })
